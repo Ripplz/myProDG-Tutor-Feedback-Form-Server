@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 
 app.use(bodyParser.json());
 
-MongoClient.connect(db.url, (err, database) => {
+MongoClient.connect(db.url, { useNewUrlParser: true }, (err, database) => {
 	if (err) return console.log(err);
 
 	db = database.db("myprodg");
